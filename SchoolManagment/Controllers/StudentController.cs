@@ -22,6 +22,7 @@ namespace SchoolManagment.Controllers
         public IActionResult Details(int id)
         {
             Student student = context.Students.SingleOrDefault(s => s.Id == id);
+           
             return View(student);
         }
     }

@@ -1,0 +1,23 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Student</h1>
+
+<h3>@Model.Name</h3>
+<h3>@Model.Age</h3>
+<h3>@Model.StudyYear</h3>
+
+<h1>Course</h1>
+<h3>@(((Course)ViewData["course"]).Id)</h3>
+<h3>@(((Course)ViewData["course"]).Name)</h3>
+<h3>@(((Course)ViewData["course"]).FullMark)</h3>
+<h3>@ViewBag.course.Description</h3>
+
+<h1>Teacher</h1>
+<h3>@ViewBag.Tech.Id</h3>
+<h3>@ViewBag.Tech.Name</h3>
+<h3>@(((Teacher)ViewData["Tech"]).PhoneNumber)</h3>
+
+

@@ -1,0 +1,32 @@
+﻿@using SchoolManagment.ViewModels
+@model studnetCourseTeacherVM
+@{
+    ViewData["Title"] = "TryViewModel";
+}
+
+<h1>TryViewModel</h1>
+
+<h1>Student</h1>
+
+<h3>@Model.student.Name</h3>
+<h3>@Model.student.Age</h3>
+<h3>@Model.student.StudyYear</h3>
+
+<form action="/StateManagmentP1/GetStudentID">
+    <label for="Id">Std ID</label>
+    <input id="Id" name="Id" type="number"/>
+
+    <input type="submit" value="Go"/>
+</form>
+
+<h1>Course</h1>
+<h3>@Model.course.Id</h3>
+<h3>@(Model.course.Name)</h3>
+<h3>@(Model.course.FullMark)</h3>
+<h3>@Model.course.Description</h3>
+
+<h1>Teacher</h1>
+<h3>@Model.teacher.Id</h3>
+<h3>@Model.teacher.Name</h3>
+<h3>@(Model.teacher.PhoneNumber)</h3>
+
