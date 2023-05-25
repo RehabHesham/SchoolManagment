@@ -1,0 +1,33 @@
+﻿<!-- Loosly Type view -->
+
+<!-- String View-->
+@model List<Student>
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+<h1>GetAll</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">School Year</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach(var std in Model){
+        <tr>
+            <th scope="row">@std.Id</th>
+            <td>@std.Name</td>
+            <td>@std.Age</td>
+            <td>@std.StudyYear</td>
+                <td><a href="/student/details/@std.Id"><i class="fa-solid fa-light fa-circle-info"></i></a></td>
+        </tr>
+        }
+    </tbody>
+</table>
