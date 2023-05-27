@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace SchoolManagment
 {
     public class Program
@@ -11,6 +13,7 @@ namespace SchoolManagment
 
             var app = builder.Build();
 
+            #region built in
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
@@ -27,9 +30,58 @@ namespace SchoolManagment
             app.UseAuthorization();
 
             app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                name:"Student",
+                pattern: "std/{action=GetAll}/{id?}",
+                defaults: new {controller="student"}
+                );
 
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}/{name?}");
+
+            // app.MapFallbackToController("Error", "Home");
+            app.MapFallbackToFile("/html/404Error.html");
+            #endregion
+
+
+            #region Custom
+            //app.Use(async (context, next) =>
+            //{
+            //    // context.Response.ContentType = "Text";
+            //    //await context.Response.WriteAsync("middleware 1 \n");
+            //    Console.WriteLine("middleware 1 \n");
+            //    await next();
+            //    Console.WriteLine("middleware 1 backward\n");
+            //});
+
+            ////app.Run(async (context) =>
+            ////{
+            ////    Console.WriteLine("Request terminated");
+            ////});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    // await context.Response.WriteAsync("middleware 2 \n");
+            //    Console.WriteLine("middleware 2 \n");
+            //    if (context.Request.Path != "/short") {
+            //        await next();
+            //    }
+            //    Console.WriteLine("middleware 2 backward\n");
+
+            //});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    // await context.Response.WriteAsync("middleware 2 \n");
+            //    Console.WriteLine("middleware 3 \n");
+            //    await next();
+            //    Console.WriteLine("middleware 3 backward\n");
+
+            //});
+
+            //app.Map("/maprequest", () => { Console.WriteLine("Mapped"); });
+
+            #endregion
             app.Run();
         }
     }
