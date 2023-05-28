@@ -25,5 +25,15 @@ namespace SchoolManagment.Controllers
            
             return View(student);
         }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        public IActionResult AddDB()
+        {
+            return RedirectToAction(nameof(GetAll));
+        }
     }
 }

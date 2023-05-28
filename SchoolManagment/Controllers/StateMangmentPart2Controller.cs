@@ -69,5 +69,22 @@ namespace SchoolManagment.Controllers
             Response.Cookies.Delete("name");
             return Content("Name cookie is deleted");
         }
+
+        public IActionResult SetSession()
+        {
+            HttpContext.Session.SetString("name", "Ali");
+            HttpContext.Session.SetInt32("age", 23);
+
+            return Content("Session Contains Data");
+        }
+
+        public IActionResult GetSession()
+        {
+            string name = HttpContext.Session.GetString("name");
+            int? age = HttpContext.Session.GetInt32("age");
+
+            return Content($"Name = {name}, Age={age}");
+
+        }
     }
 }

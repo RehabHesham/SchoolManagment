@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form method="post" action="/modelbinder/PremitiveDT">
+    <input id="name" name="name" type="text"/>
+    <input id="age" name="age" type="number" />
+
+    <input type="submit" value="Send" />
+</form>
+
+<form method="post" action="/modelbinder/ArrayDT">
+    <input id="color" name="color[1]" type="text" />
+    <input id="color" name="color[3]" type="text" />
+    <input id="color" name="color[0]" type="text" />
+
+    <input type="submit" value="Send" />
+</form>
+
+<form method="post" action="/modelbinder/ObjectDT">
+    <input id="Id" name="Id" type="number" />
+    <input id="Name" name="Name" type="text" />
+    <input id="color" name="StudnetCourses[0].Grade" type="number" />
+
+    <input type="submit" value="Send" />
+</form>
+
+<form method="post" action="/modelbinder/CollectionDT">
+    <input id="Id" name="map[ali]" type="text" />
+    <input id="Name" name="map[ola]" type="text" />
+    <input id="color" name="map[nour]" type="text" />
+
+    <input type="submit" value="Send" />
+</form>

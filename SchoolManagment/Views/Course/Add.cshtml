@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<form action="/course/addDb" method="post">
+    <label for="name">Name</label>
+    <input id="name" name="Name" type="text"/>
+    <label for="Description">Description</label>
+    <input id="Description" name="Description" type="text" />
+    <label for="Duration">Duration</label>
+    <input id="Duration" name="Duration" type="number" />
+   
+    <select id="TeacherId" name="TeacherId">
+        @foreach (var teacher in ViewBag.teachers){
+        <option value="@teacher.Id">@teacher.Name</option>
+        }
+    </select>
+    
+    <input type="submit" value="Add" />
+</form>

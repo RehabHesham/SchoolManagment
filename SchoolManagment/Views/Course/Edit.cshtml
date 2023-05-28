@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model CourseViewModel
+
+<form action="/course/edit" method="post">
+    <input hidden id="Id" name="Id" value="@Model.Id" />
+    <label for="name">Name</label>
+    <input id="name" name="Name" type="text" value="@Model.Name"/>
+    <label for="Description">Description</label>
+    <input id="Description" name="Description" type="text"  value="@Model.Description"/>
+    <label for="Duration">Duration</label>
+    <input id="Duration" name="Duration" type="number"  value="@Model.Duration"/>
+
+    <select id="TeacherId" name="TeacherId">
+        @foreach(var teacher in Model.Teachers){
+            @if(teacher.Id == Model.TeacherId)
+            {
+                <option value="@teacher.Id" selected>@teacher.Name</option>
+
+            }else{
+            <option value="@teacher.Id">@teacher.Name</option>
+        }}
+    </select>
+
+    <input type="submit" value="Edit" />
+</form>

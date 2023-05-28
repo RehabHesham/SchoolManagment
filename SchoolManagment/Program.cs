@@ -9,7 +9,9 @@ namespace SchoolManagment
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
+            builder.Services.AddSession(options =>
+            options.IdleTimeout = TimeSpan.FromMinutes(10000)); ;
 
             var app = builder.Build();
 
@@ -24,7 +26,7 @@ namespace SchoolManagment
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
