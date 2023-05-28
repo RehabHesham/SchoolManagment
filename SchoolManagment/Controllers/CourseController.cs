@@ -30,7 +30,6 @@ namespace SchoolManagment.Controllers
             return View();
         }
 
-        [HttpPost]
         public IActionResult AddDB(Course course)
         {
             context.Courses.Add(course);
